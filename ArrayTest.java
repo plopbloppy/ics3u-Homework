@@ -27,7 +27,6 @@ public class ArrayTest {
                         System.out.println(array);
                     }
                     break;
-
                 case 3:
                     System.out.println("Please enter a number between 1 and 10:");
                     System.out.println(input[keyboard.nextInt()]);
