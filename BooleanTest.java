@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class BooleanTest {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
+        
         System.out.println("Please enter an A value:");
         boolean a = keyboard.nextBoolean();
         System.out.println("Please enter a B value:");
