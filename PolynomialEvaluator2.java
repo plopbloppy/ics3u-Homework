@@ -4,24 +4,28 @@ public class PolynomialEvaluator2 {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
 
+        String function = "f(x) = ";
+        double sum = 0.0;
         System.out.println("Please enter the coefficient of each term separated by a space:");
-        String coeffInput = keyboard.nextLine();
-        String[] coeffData = coeffInput.split(" ");
-
+        String coefficients = keyboard.nextLine();
         System.out.println("Please enter the degree of each term separated by a space:");
-        String degInput = keyboard.nextLine();
-        String[] degData = degInput.split(" ");
-
+        String exponents = keyboard.nextLine();
         System.out.println("Please enter an x value:");
         double x = keyboard.nextDouble();
-        double fx = 0.0;
         keyboard.close();
 
-        System.out.println("Your polynomial function is: f(x) = " );
-        for (int i = 0; i < coeffData.length; i++) {
-            fx += (Math.pow(Double.valueOf(coeffData[i]) * x, Double.valueOf(degData[i])));
-            System.out.println(coeffData[i] + "x^" + degData[i]);
+        String[] coefData = coefficients.split(" ");
+        String[] expData = exponents.split(" ");  
+
+        for (int i = 0; i < coefData.length; i++) {
+            sum += (Math.pow(Double.parseDouble(coefData[i]) * x, Double.parseDouble(expData[i])));
+            if (i == coefData.length - 1) {
+                function += coefData[i] + "x^" + expData[i];
+            } else {
+                function += coefData[i] + "x^" + expData[i] + " + ";
+            }
         }
-        System.out.println("Your polynomial at x = " + x + " is: f(" + x + ") = " + fx);
+        System.out.println("Your polynomial function is:" + function);
+        System.out.println("Your polynomial at x = " + x + " is: f(" + x + ") = " + sum);
     }
 }
