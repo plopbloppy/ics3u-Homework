@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class PolynomialEvaluator2 {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
-
         String function = "f(x) = ";
         double sum = 0.0;
+        
         System.out.println("Please enter the coefficient of each term separated by a space:");
         String coefficients = keyboard.nextLine();
         System.out.println("Please enter the degree of each term separated by a space:");
