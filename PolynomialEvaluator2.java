@@ -6,9 +6,9 @@ public class PolynomialEvaluator2 {
         String function = "f(x) = ";
         double sum = 0.0;
         
-        System.out.println("Please enter the coefficient of each term separated by a space:");
+        System.out.println("Please enter the coefficients, each separated by a space:");
         String coefficients = keyboard.nextLine();
-        System.out.println("Please enter the degree of each term separated by a space:");
+        System.out.println("Please enter the exponents, each separated by a space:");
         String exponents = keyboard.nextLine();
         System.out.println("Please enter an x value:");
         double x = keyboard.nextDouble();
