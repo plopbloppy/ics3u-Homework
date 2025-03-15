@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PolynomialEvaluator2 {
+public class PolynomialFunction {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
         String function = "f(x) = ";
