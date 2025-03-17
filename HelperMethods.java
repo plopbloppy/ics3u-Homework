@@ -19,37 +19,43 @@ public class HelperMethods {
     }
 
     public static void asymptoteFinder(int m, int n2) {
-        switch (m - n2) {
-            case 1:
-                System.out.println("The asymptote is linear.");
-                break;
-            case 2:
-                System.out.println("The asymptote is quadratic.");
-                break;
-            case 3:
-                System.out.println("The asymptote is cubic.");
-                break;
-            case 4:
-                System.out.println("The asymptote is quartic.");
-                break;
-            case 5:
-                System.out.println("The asymptote is quintic.");
-                break;
-            case 6:
-                System.out.println("The asymptote is sextic.");
-                break;
-            case 7:
-                System.out.println("The asymptote is septic.");
-                break;
-            case 8:
-                System.out.println("The asymptote is octic.");
-                break;
-            case 9:
-                System.out.println("The asymptote is nonic.");
-                break;
-            case 10:
-                System.out.println("The asymptote is decic.");
-                break;
+        if (m == n2) {
+            System.out.println("The asymptote is horizontal.");
+        } else if (n2 > m) {
+            System.out.println("The asymptote is the x-axis.");
+        } else {
+            switch (m - n2) {
+                case 1:
+                    System.out.println("The asymptote is linear.");
+                    break;
+                case 2:
+                    System.out.println("The asymptote is quadratic.");
+                    break;
+                case 3:
+                    System.out.println("The asymptote is cubic.");
+                    break;
+                case 4:
+                    System.out.println("The asymptote is quartic.");
+                    break;
+                case 5:
+                    System.out.println("The asymptote is quintic.");
+                    break;
+                case 6:
+                    System.out.println("The asymptote is sextic.");
+                    break;
+                case 7:
+                    System.out.println("The asymptote is septic.");
+                    break;
+                case 8:
+                    System.out.println("The asymptote is octic.");
+                    break;
+                case 9:
+                    System.out.println("The asymptote is nonic.");
+                    break;
+                case 10:
+                    System.out.println("The asymptote is decic.");
+                    break;
+            }
         }
     }
 
