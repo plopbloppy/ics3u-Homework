@@ -38,7 +38,7 @@ public class AsymptoteFinder {
                     System.out.println("The asymptote is septic.");
                     break;
                 case 8:
-                    System.out.println("The asymptote is the octic.");
+                    System.out.println("The asymptote is octic.");
                     break;
                 case 9:
                     System.out.println("The asymptote is nonic.");
