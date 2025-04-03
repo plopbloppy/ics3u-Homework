@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+    
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         PopMachine pop = new PopMachine(100, 10.0, 1.5);
