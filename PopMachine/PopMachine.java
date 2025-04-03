@@ -20,10 +20,15 @@ public class PopMachine {
     }
 
     public void popButton(double money) {
-        if (numberOfPop >= 1 && money >= priceOfPop) {
-            numberOfPop--;
+        if (money >= priceOfPop) {
+            if (numberOfPop >= 1) {
+                numberOfPop--;
+            } else {
+                System.out.println("Sold out");
+            }
         } else {
-            System.out.println("Sold out");
+            System.out.println("Not enough money!");
+            System.exit(1);
         }
     }
 
