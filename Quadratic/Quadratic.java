@@ -52,8 +52,8 @@ public class Quadratic {
     public double[] getRoots() {
         double[] roots = new double[2];
         if (getDiscriminant() >= 0) {
-            roots[0] = (-getB(b) - (Math.sqrt(getDiscriminant()))) / (2 * a);
-            roots[1] = (-getB(b) + (Math.sqrt(getDiscriminant()))) / (2 * a);
+            roots[0] = (-b - (Math.sqrt(getDiscriminant()))) / (2 * a);
+            roots[1] = (-b + (Math.sqrt(getDiscriminant()))) / (2 * a);
         } else {
             roots[0] = 0.0;
             roots[1] = 0.0;
@@ -84,8 +84,7 @@ public class Quadratic {
     }
 
     public void getFactoredForm() {
-        double firstRoot = (-b - (Math.sqrt(getDiscriminant()))) / (2 * a);
-        double secondRoot = (-b + (Math.sqrt(getDiscriminant()))) / (2 * a);
-        System.out.println("f(x) = (x +" + firstRoot + ")(x +" + secondRoot + ")");
+        double roots [] = getRoots();
+        System.out.println("f(x) = (x -" + roots[0] + ")(x -" + roots[1] + ")");
     }
 }
