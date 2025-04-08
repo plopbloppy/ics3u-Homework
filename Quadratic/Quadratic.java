@@ -1,32 +1,8 @@
 public class Quadratic {
+
     private double a;
     private double b;
     private double c;
-    private double x;
-
-    public double getA(double a) {
-        return a;
-    }
-
-    public double getB(double b) {
-        return b;
-    }
-
-    public double getC(double c) {
-        return c;
-    }
-
-    public void setA() {
-        a = getA(a) * x * x;
-    }
-
-    public void setB() {
-        b = getB(b) * x;
-    }
-    
-    public void setC() {
-        c = getC(c);
-    }
 
     public Quadratic(double a, double b, double c) {
         this.a = a;
@@ -34,15 +10,29 @@ public class Quadratic {
         this.c = c;
     }
 
-    public boolean hasRealRoots() {
-        boolean hasRealRoots;
-        hasRealRoots = getDiscriminant() >= 0;
-        return hasRealRoots;
+    //This is for the user to see these values
+    public double getA() {
+        return a;
     }
 
-    public boolean isMaximum() {
-        boolean hasMaximum = a < 0;
-        return hasMaximum;
+    public double getB() {
+        return b;
+    }
+
+    public double getC() {
+        return c;
+    }
+
+    public void setA() {
+        this.a = a;
+    }
+
+    public void setB() {
+        this.b = b;
+    }
+    
+    public void setC() {
+        this.c = c;
     }
 
     public double getDiscriminant() {
@@ -51,40 +41,53 @@ public class Quadratic {
 
     public double[] getRoots() {
         double[] roots = new double[2];
-        if (getDiscriminant() >= 0) {
-            roots[0] = (-b - (Math.sqrt(getDiscriminant()))) / (2 * a);
-            roots[1] = (-b + (Math.sqrt(getDiscriminant()))) / (2 * a);
+        double discriminant = getDiscriminant();
+
+        if (getDiscriminant() < 0) {
+            return null;
         } else {
-            roots[0] = 0.0;
-            roots[1] = 0.0;
+            roots[0] = (-b - (Math.sqrt(discriminant))) / (2 * a);
+            roots[1] = (-b + (Math.sqrt(discriminant))) / (2 * a);
+            return roots;
         }
-        return roots;
     }
 
-    public double[] getVertex() {
+    public void getFactoredForm() {
         double[] roots = getRoots();
-        double[] vertex = new double[2];
 
-        vertex[0] = (roots[0] + roots[1]) / 2;
-        vertex[1] = a * Math.pow(vertex[0],2) + b * vertex[0] + c;
-        return vertex;
-    }
-
-    public double getYIntercept() {
-        return c;
+        if (roots != null) {
+            System.out.println("f(x) = (x +" + roots[0] + ")(x +" + roots[1] + ")");
+        } else {
+            System.out.println("No factored form.");
+        }
     }
 
     public void getStandardForm() {
         System.out.println("f(x) = " + a + "x^2 +" + b+ "x +" + c);
     }
 
+    public double[] getVertex() {
+        double h = -b / (2 * a);
+        double k = (4 * a * c - b * b) / (4 * a);
+
+        return new double[] {h , k};
+    }
+
     public void getVertexForm() {
         double [] vertex = getVertex();
+
         System.out.println("f(x) = " + a + "(x -" + vertex[0] + ")^2 + " + vertex[1]);
     }
 
-    public void getFactoredForm() {
-        double roots [] = getRoots();
-        System.out.println("f(x) = (x -" + roots[0] + ")(x -" + roots[1] + ")");
+    public double getYIntercept() {
+        return c;
+    }
+
+    public boolean hasRealRoots() {
+        return getDiscriminant() >= 0;
+    }
+
+    public boolean isMaximum() {
+        return a < 0;
     }
 }
