@@ -1,39 +1,44 @@
 public class PopMachine {
+
     private int numberOfPop;
     private double amountOfMoney;
     private double priceOfPop;
-    private double change;
+    private double moneyEntered;
 
     public PopMachine(int numberOfPop, double amountOfMoney, double priceOfPop) {
         this.numberOfPop = numberOfPop;
         this.amountOfMoney = amountOfMoney;
         this.priceOfPop = priceOfPop;
+        this.moneyEntered = 0.0;
     }
 
     public PopMachine(int numberOfPop) {
-        this(numberOfPop, 90.0, 1.5);
+        this(numberOfPop, 90.0, 1.75);
     }
 
     public void coinSlot(double money) {
-        change = money - priceOfPop;
-        amountOfMoney += money;
+        moneyEntered += money;
     }
 
-    public void popButton(double money) {
-        if (money >= priceOfPop) {
+    public double popButton(double money) {
+        if (moneyEntered >= priceOfPop) {
             if (numberOfPop >= 1) {
                 numberOfPop--;
+                amountOfMoney += priceOfPop;
+                double change = moneyEntered - priceOfPop;
+                moneyEntered = 0.0;
+                return change;
             } else {
                 System.out.println("Sold out");
+                return moneyEntered;
             }
         } else {
             System.out.println("Not enough money!");
-            System.exit(1);
+            return 0.0;
         }
     }
 
     public double coinReturn() {
-        amountOfMoney -= change;
-        return change;
+        return moneyEntered;
     }
 }
